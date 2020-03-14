@@ -14,7 +14,7 @@ function update()
     movePlanets(planets);
     drawPlanets(planets, scale);
     drawAcceleration(planets, scale);
-    console.log(planets[1].ax, planets[1].ay)
+    console.log(planets[1].dx, planets[1].dy)
 }
 //main loop timer
 setInterval(update, 20);

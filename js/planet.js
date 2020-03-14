@@ -61,8 +61,10 @@ function movePlanets(planets)
 {
     for(i = 0; i < planets.length; i++)
     {
-        planets[i].dx += planets[i].ax;
-        planets[i].dy += planets[i].ay;
+        let precision = 0.0000000000001;
+        if(planets[i].ax > precision || planets[i].ax < -precision) planets[i].dx += planets[i].ax;
+        if(planets[i].ay > precision || planets[i].ay < -precision) planets[i].dy += planets[i].ay;
+        
         planets[i].x += planets[i].dx;
         planets[i].y += planets[i].dy;
     }
