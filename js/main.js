@@ -1,10 +1,10 @@
-let scale = 1;
+let scale = 2;
 
 //Setting up planets
 let planets = [
-    planet.init(20, "green", 400, 500, 12, 8, 0, 0),
-    planet.init(4000, "blue", 800, 500, 0, 0, 0, 0),
-    /* planet.init(200, "red", 800, 700, 10, 0, 0, 0) */
+    planet.init(3000, "green",    700, 700, 0, 12, 0, 0),
+    planet.init(40000, "yellow", 1000, 700, 0, 0, 0, 0),
+    planet.init(3000, "red",     1300, 700, 0, -12, 0, 0)
 ];
     
 //main loop
@@ -13,7 +13,8 @@ function update()
     applyForces(planets);
     movePlanets(planets);
     drawPlanets(planets, scale);
-    console.log(planets[0].x, planets[0].y)
+    drawAcceleration(planets, scale);
+    console.log(planets[1].ax, planets[1].ay)
 }
 //main loop timer
-setInterval(update, 40);
+setInterval(update, 20);

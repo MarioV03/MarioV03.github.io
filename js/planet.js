@@ -5,6 +5,7 @@ const context = canvas.getContext("2d");
 var planet = {
     mass: 10000,
     color: "white",
+    radius: 15,
     x: 500,
     y: 300,
     dx: 0,
@@ -17,6 +18,7 @@ var planet = {
         let obj = Object.create(planet);
         obj.mass = mass;
         obj.color = color;
+        obj.radius = Math.pow(mass, 0.3);
         obj.x = x;
         obj.y = y;
         obj.dx = dx;
@@ -30,13 +32,26 @@ var planet = {
 //Rendering
 function drawPlanets(planets, scale)
     {
-        context.clearRect(0, 0, 1600, 1000)
+        context.clearRect(0, 0, 1000, 700)
         for(i = 0; i < planets.length; i++)
         {
             context.beginPath();
-            context.arc(planets[i].x/scale, planets[i].y/scale, 15/scale, 0, 6.29);
+            context.arc(planets[i].x/scale, planets[i].y/scale, planets[i].radius/scale, 0, 6.29);
             context.fillStyle = planets[i].color;
             context.fill();
+            context.closePath();
+        }
+}
+
+function drawAcceleration(planets, scale)
+{
+    for(i = 0; i < planets.length; i++)
+        {
+            context.beginPath();
+            context.moveTo(planets[i].x/scale, planets[i].y/scale);
+            context.lineTo(planets[i].x/scale + 100*planets[i].ax, planets[i].y/scale + 100*planets[i].ay);
+            context.strokeStyle = planets[i].color;
+            context.stroke();
             context.closePath();
         }
 }
@@ -79,11 +94,14 @@ function applyForces(planets)
 
     for(i = 0; i < planets.length; i++)
     {
-        for(j = 1; j < planets.length; j++)
-        {
-            planets[i].ax += accel_x(planets[i], planets[(i+j)%planets.length], Dist[i]);
-            planets[i].ay += accel_y(planets[i], planets[(i+j)%planets.length], Dist[i]);
-        }
+        planets[i].ax = 0;
+        planets[i].ay = 0;
+        
+        planets[i].ax += accel_x(planets[i], planets[(i+1)%planets.length], Dist[i]);
+        planets[i].ay += accel_y(planets[i], planets[(i+1)%planets.length], Dist[i]);
+
+        planets[i].ax += accel_x(planets[i], planets[(i+2)%planets.length], Dist[(i+2)%3]);
+        planets[i].ay += accel_y(planets[i], planets[(i+2)%planets.length], Dist[(i+2)%3]);
     }
     
 }
