@@ -1,8 +1,9 @@
 
 let simulation = {
     planetInputs: [
-        planet.init(30000, "green",   1000, 400, 5, 0, 0, 0),
-        planet.init(40000, "red",     1000, 1000, -3.75, 0, 0, 0)
+        planet.init(3000, "#0080ff",   1000, 400, 5, 0, 0, 0),
+        planet.init(8000, "#ffff00",   1000, 700, 0, 0, 0, 0),
+        planet.init(3000, "#ff8000",   1000, 1000, -5, 0, 0, 0)
     ],
     scale: 2,
     rate: 30,

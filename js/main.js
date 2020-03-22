@@ -127,10 +127,14 @@ load_button.onclick = function()
 {
     if(document.getElementById("file").value == "")
     {
-        alert("ERROR: input field is empty");
-        return;
+        alert("ERROR: input field is empty. Default simulation will be loaded");
+        initSimulation();
+        
     }
-    sim = JSON.parse(document.getElementById("file").value);
+    else
+    {
+        sim = JSON.parse(document.getElementById("file").value);
+    }
     planetPanels = recreatePanel(sim);
 }
 
