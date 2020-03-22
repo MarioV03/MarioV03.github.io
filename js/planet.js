@@ -82,10 +82,10 @@ function movePlanets(planets) {
     if (planets[i].ay < precision && planets[i].ay > -precision)
       planets[i].ay = 0;
 
-    planets[i].dx += planets[i].ax;
-    planets[i].dy += planets[i].ay;
-    planets[i].x += planets[i].dx;
-    planets[i].y += planets[i].dy;
+    planets[i].dx += planets[i].ax/dt;
+    planets[i].dy += planets[i].ay/dt;
+    planets[i].x += planets[i].dx/dt;
+    planets[i].y += planets[i].dy/dt;
   }
 }
 

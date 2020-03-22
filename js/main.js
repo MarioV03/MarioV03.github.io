@@ -16,14 +16,18 @@ let save_button = document.getElementById("save_button");
 //main loop timer
 let interval;
 let running = false;
+let showVectors = false;
+let dt = 1000;
 
 //main loop events
 function update()
 {
-    applyForces(planets);
-    movePlanets(planets);
-    drawPlanets(planets, sim.scale);
-    drawAcceleration(planets, sim.scale);
+    for (let i = 0; i < dt; i++) {
+        applyForces(planets);
+        movePlanets(planets);
+        drawPlanets(planets, sim.scale);
+        if(showVectors) drawAcceleration(planets, sim.scale);
+    }
 }
 
 function run()
@@ -74,9 +78,9 @@ scaleInput.oninput = function()
 numOfPlanets.oninput = function()
 {
     if(numOfPlanets.value == 0) return;
-    if(numOfPlanets.value > 3 || numOfPlanets.value < 1)
+    if(numOfPlanets.value > 10 || numOfPlanets.value < 1)
     {
-        alert("Invalid number of planets, please choose within a range of [1-3]");
+        alert("Invalid number of planets, please choose within a range of [1-10]");
         return;
     }
     planetPanels = addPanels(numOfPlanets.value);
@@ -136,6 +140,7 @@ load_button.onclick = function()
         sim = JSON.parse(document.getElementById("file").value);
     }
     planetPanels = recreatePanel(sim);
+    numOfPlanets.disabled = true;
 }
 
 initSimulation();
