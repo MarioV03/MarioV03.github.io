@@ -1,5 +1,9 @@
 const canvas = document.getElementById("scene");
+const canvas2 = document.getElementById("overlay");
 const context = canvas.getContext("2d");
+const context2 = canvas2.getContext("2d");
+
+context2.globalAlpha = 0.01;
 
 //Planets data
 var planet = {
@@ -72,8 +76,19 @@ function drawAcceleration(planets, scale) {
   }
 }
 
+function drawTrajectory(planets, scale) {
+  for (i = 0; i < planets.length; i++) {
+    context2.fillStyle = planets[i].color;
+    context2.fillRect(Math.floor(planets[i].x / scale), Math.floor(planets[i].y / scale), 1, 1);
+  }
+}
+
+function clearTrajectory() {
+  context2.clearRect(0, 0, 1000, 700);
+}
+
 //Physics
-const precision = 0.000000001;
+const precision = 0.0000001;
 
 function movePlanets(planets) {
   for (i = 0; i < planets.length; i++) {

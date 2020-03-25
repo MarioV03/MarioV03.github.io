@@ -31,13 +31,15 @@ div.planet_panel {
   display: inline-block;
 }
 
-div#screen {
+#screen {
   display: inline-block;
   border: 2pt azure solid;
   border-radius: 5pt;
   padding: 0;
   margin: 30, 0, 20, 0;
   overflow: hidden;
+  width: 1000;
+  height: 700;
 }
 
 div.planet_panel p {
@@ -97,18 +99,38 @@ h1 {
   background-color: #223;
   border: 1pt solid azure;
   border-radius: 3pt;
-  }
+}
 
 ::placeholder {
   opacity: 50%;
 }
 
 button {
-    border: 1pt solid azure;
-    border-radius: 3pt;
-    cursor: pointer;
+  border: 1pt solid azure;
+  border-radius: 3pt;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #559;
+  background-color: #559;
+}
+
+#scene, #overlay {
+  position: absolute;
+  top: 8pt;
+  left: 8pt;
+  border-radius: 5pt;
+  width: 1000;
+  height: 700;
+}
+
+#scene {
+  background-image: url(space_1.jpg);
+  z-index: 0;
+}
+
+
+#overlay {
+  background: rgba(0, 0, 0, 0);
+  z-index: 1;
 }
