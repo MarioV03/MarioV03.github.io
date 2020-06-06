@@ -1,4 +1,4 @@
-##Current projects
-- Gravitarium
-- DoneTheLastMinute
+## Current projects
+* Gravitarium
+* DoneTheLastMinute
 
