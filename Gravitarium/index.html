@@ -1,0 +1,75 @@
+<!DOCTYPE HTML5>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Gravitarium (Beta v0.7)</title>
+  <link rel="stylesheet" type="text/css" href="gui/style.css" />
+</head>
+<body>
+  <div id="screen">
+    <canvas id="scene" width="1000" height="700" ></canvas>
+    <canvas id="overlay" width="1000" height="700"></canvas>
+  </div>
+  <div id="panel">
+    <h1 style="font-size: xxx-large; text-decoration: underline;">
+      Control Panel
+    </h1>
+    <div id="master_panel">
+      <p style="width: 90%;">
+        Number of planets (1-3)
+        <input
+          style="width: 25pt;"
+          type="number"
+          id="num"
+          max="3"
+          min="1"
+          step="2"
+          placeholder="3"
+        />
+      </p>
+      <p>
+        Tick period
+        <input
+          style="width: 40pt;"
+          type="number"
+          id="rate"
+          step="1"
+          max="500"
+          min="1"
+        />
+      </p>
+      <p>
+        Scale
+        <input
+          style="width: 50pt;"
+          type="number"
+          id="scale"
+          step="0.2"
+          max="10"
+          min="0.2"
+        />
+      </p>
+    </div>
+    <div id="toolbar">
+      <button id="new_button">New</button>
+      <button id="save_button">Save</button><br>
+      <button id="load_button">Load</button><input type="text" name="simulation" id="file"><br>
+      <button id="run_button">Run</button>
+    </div>
+    <div id="subpanel"></div>
+
+    <!-- <div class="planet_panel">
+            <h1>Planet 1 (yellow)</h1>
+            <p style="width: 90%;">Mass <input type="number" name="" id="" step="100"></p>
+            <p>x <input type="number" name="" id="" step="10"></p>
+            <p>dx <input type="number" name="" id="" step="10"></p>
+            <p>y <input type="number" name="" id="" step="10"></p>
+            <p>dy <input type="number" name="" id="" step="10"></p>
+        </div> -->
+  </div>
+
+  <script src="js/planet.js"></script>
+  <script src="js/simulation.js"></script>
+  <script src="js/setup.js"></script>
+  <script src="js/main.js"></script>
+</body>
