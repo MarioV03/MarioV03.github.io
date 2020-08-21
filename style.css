@@ -1,0 +1,72 @@
+body {
+  margin: 0 0 0 0 !important;
+  padding: 0 0 0 0 !important;
+  height: 100%;
+}
+
+.panel {
+  display: block;
+
+  color: floralwhite;
+  font-size: 36px;
+  font-weight: 550;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  width: 100%;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  background-color: rgba(10, 10, 20, 0.55);
+}
+
+.header > a {
+  display: inline-block;
+  margin: 5px 2px 5px 2px;
+  padding: 2px 5px 2px 5px;
+  border-radius: 2px;
+  font: inherit;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.header > a:hover {
+  background-color: rgba(70, 70, 80, 0.75);
+}
+
+.content {
+  padding: 10px 0 10px 0;
+}
+
+.twitter-timeline {
+  float: right;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+}
+
+.footer > a {
+  display: inline-block;
+  margin: 5px 15px 5px 15px;
+}
+
+.background {
+  display: block;
+
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  color:rgb(173, 255, 47);
+}
+
+h3 {
+  margin: 0;
+  padding: 5px 10px 5px 10px;
+
+  font: inherit;
+  font-weight: 500;
+}
